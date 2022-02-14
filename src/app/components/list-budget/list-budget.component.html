@@ -1,0 +1,36 @@
+<app-home></app-home>
+
+<div class="wrapper">
+    
+
+    <div *ngIf="isEmpty; then thenBlock; else elseBlock"></div>
+        <ng-template #thenBlock>
+             <div class="text-center name" > You don't have any budget. Please add a budget! </div>
+        </ng-template>
+         <ng-template #elseBlock>
+        <div class="text-center name" > Your budgets are here! </div>
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">UserId</th>
+            <th scope="col">Category</th>
+            <th scope="col">Value</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor = "let budget of budgets">
+            <tr>
+            <th scope="row">{{budget.id}}</th>
+            <td>{{budget.userId}}</td>
+            <td>{{budget.category}}</td>
+            <td>{{budget.value}}</td>
+            <td>
+                <a  [routerLink]="['', 'home', 'edit', budget.id]"><i class="fa fa-edit" style="cursor: pointer;"> </i> </a>
+                <i class="fa fa-trash" style="cursor: pointer; padding-left: 20px;" (click)="onDelete(budget.id)"></i>
+                </td>
+            </tr>
+        </tbody>
+        </table>    
+        </ng-template>
+</div>

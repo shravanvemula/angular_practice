@@ -1,0 +1,32 @@
+
+<div *ngIf="isAdded" class="alert alert-success alert-dismissible fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+ <strong>Success!</strong>  User created.
+  <button (click)="removeAlert()" type="button" data-bs-dismiss="alert" aria-label="Close">x</button>
+</div>
+
+<div *ngIf="isEmailEmpty" class="alert alert-danger  alert-dismissible fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+  <strong>Error!</strong>  Please provide email.
+  <button (click)="removeAlert()" type="button" class="closeButton" data-bs-dismiss="alert" aria-label="Close">x</button>
+</div>
+
+<div *ngIf="isAgeEmpty" class="alert alert-danger  alert-dismissible fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+  <strong>Error!</strong>  Please provide age.
+  <button (click)="removeAlert()" type="button" class="closeButton" data-bs-dismiss="alert" aria-label="Close">x</button>
+</div>
+
+<div *ngIf="isPasswordEmpty" class="alert alert-danger alert-dismissible fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+  <strong>Error!</strong>  Please provide password.
+  <button (click)="removeAlert()" type="button" class="closeButton" data-bs-dismiss="alert" aria-label="Close">x</button>
+</div>
+
+
+<div class="wrapper">
+    <div class="text-center name" > Budget App </div>
+    <form class="p-3 mt-3" [formGroup]="addUser" (ngSubmit)="saveUser()">
+        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input formControlName="email" type="email" name="email" id="email" placeholder="Email"> </div>
+        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input formControlName="password" type="password" name="password" id="pwd" placeholder="Password"> </div>
+        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input formControlName="age" type="text" name="age" id="age" placeholder="Age"> </div>
+        <button class="btn mt-3">Register</button>
+    </form>
+    <div class="text-center small fs-6"> Already have an account? <a routerLink=''>Login</a> </div>
+</div>
