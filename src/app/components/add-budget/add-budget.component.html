@@ -1,0 +1,25 @@
+<app-home></app-home>
+<div *ngIf="isAdded" class="alert alert-success alert-dismissible   fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+ <strong>Success!</strong>  Budget added.
+  <button (click)="removeAlert()" type="button" class="closeButton" data-bs-dismiss="alert" aria-label="Close">x</button>
+</div>
+
+<div *ngIf="isCategoryEmpty" class="alert alert-danger  alert-dismissible fade show " style="width: 300px;text-align: center;margin: auto;" role="alert">
+    <strong>Error!</strong>  Please provide category.
+  <button (click)="removeAlert()" type="button" data-bs-dismiss="alert" class="closeButton" aria-label="Close">x</button>
+</div>
+
+<div *ngIf="isBudgetEmpty" class="alert alert-danger alert-dismissible fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+  <strong>Error!</strong>  Please provide value.
+  <button (click)="removeAlert()" type="button" data-bs-dismiss="alert" class="closeButton" aria-label="Close">x</button>
+</div>
+
+
+<div class="wrapper">
+    <div class="text-center name" > Create a new budget </div>
+    <form class="p-3 mt-3" [formGroup]="addBudget" (ngSubmit)="saveBudget()">
+        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input type="text" placeholder = "Enter budget category" class="form-control" formControlName="category"></div>
+        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input type="text" placeholder="Enter budget value" class="form-control" formControlName="value"> </div>
+        <button class="btn mt-3">Add budget</button>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-md bg-light navbar-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" [routerLink]="['', 'home', 'add']">Add Budget</a>
+        <a class="nav-link" [routerLink]="['', 'home', 'list']">List Budgets</a>
+        <a class="nav-link"  style="cursor: pointer;" (click)= "onLogout()">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="text-center name" style="padding-top: 50px" > <h3>Welcome to budget app!</h3> </div>
+<router-outlet></router-outlet>

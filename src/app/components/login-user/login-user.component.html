@@ -1,0 +1,24 @@
+<div *ngIf="isInvalid" class="alert alert-danger alert-dismissible fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+  <strong>Error!</strong>  Invalid email/password.
+  <button (click)="removeAlert()" type="button" data-bs-dismiss="alert" class="closeButton" aria-label="Close">x</button>
+</div>
+
+<div *ngIf="isEmailEmpty" class="alert alert-danger alert-dismissible fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+  <strong>Error!</strong>  Please provide email.
+  <button (click)="removeAlert()" type="button" data-bs-dismiss="alert" class="closeButton" aria-label="Close">x</button>
+</div>
+
+<div *ngIf="isPasswordEmpty" class="alert alert-danger alert-dismissible fade show" style="width: 300px;text-align: center;margin: auto;" role="alert">
+  <strong> Error!</strong>  Please provide password.
+  <button (click)="removeAlert()" type="button" data-bs-dismiss="alert" class="closeButton" aria-label="Close">x</button>
+</div>
+
+<div class="wrapper">
+    <div class="text-center mt-4 name"> Budget App </div>
+    <form class="p-3 mt-3" [formGroup]="credentials" (ngSubmit)="authenticateUser()">
+        <div class="form-field d-flex align-items-center"> <span class="far fa-user"></span> <input formControlName="email" type="email" name="email" id="email" placeholder="Email"> </div>
+        <div class="form-field d-flex align-items-center"> <span class="fas fa-key"></span> <input formControlName="password" type="password" name="password" id="pwd" placeholder="Password"> </div>
+        <button class="btn mt-3">Login</button> 
+    </form>
+    <div class="text-center small fs-6"> Don't have an account? <a routerLink='register'>Sign up</a> </div>
+</div>
